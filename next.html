@@ -1,0 +1,295 @@
+<html>
+<head>
+	<title>Yoio Player 聆听你生命中的音乐</title>
+	<meta charset="UTF-8" />
+	<meta name="description" content="Yoio Player 是一款开源Html5 CSS3音乐播放器采用高大上YoioUI作为设计元素。"><meta name="keywords" content="YoioPlayer,YoioUI,Html5播放器"><meta name="author" content="Yoio <yoio@hi6.co>">
+	<link rel="stylesheet" type="text/css" href="play/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="play/css/font-awesome.css">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="play/js/html5shiv.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="play/css/font-awesome-ie7.css">
+    <![endif]-->
+	<style type="text/css">
+		body{
+			margin: 0;
+			overflow: hidden;
+			font-family: "微软雅黑";
+			background: url('http://bcs.duapp.com/yoioplayer/bg1.jpg') no-repeat;
+			background-attachment: fixed;
+		}
+		.bg {
+			margin: 0;
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			z-index: -1;
+		}
+		.bg img { 
+			margin: 0;
+		height:100%; 
+		width:100%; 
+		border:0; 
+		} 
+		.blur {	
+		    filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */
+		    
+		    -webkit-filter: blur(10px); /* Chrome, Opera */
+		       -moz-filter: blur(10px);
+		        -ms-filter: blur(10px);    
+		            filter: blur(10px);
+		    
+		    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+		}
+
+		.login{
+			position: fixed;
+			left: 50%;
+			top: 50%;
+			width: 300px;
+			margin-left: -150px;
+			
+		}
+		.login i{
+			font-size: 20px;
+			color: #fff;
+			opacity: 0.5;
+			z-index: 2;
+		}
+
+/* 		input[type="text"]
+{
+  width:300px;
+  height: 30px;
+  display:block;
+  border: 0;
+  opacity: 0.6;
+  background:transparent;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+  font-size: 18px;
+} */
+
+		.yoio-input{
+		  width:320px;
+		  height: 30px;
+		  opacity: 0.6;
+		  display:block;
+		  color: #fff;
+		  border-bottom: 1px solid #fff;
+		  padding-top: 15px;			
+		}
+		.yoio-input  i{
+			padding: 5px;
+		}
+
+		.yoio-input > input{
+		  border: 0;
+		  width: 275px;
+		  background:transparent;
+		  color: #fff;
+		  font-size: 18px;
+		}
+
+		input[type="submit"]
+		{
+		  width:320px;
+		  height: 30px;
+		  display:block;
+		  border: 0;
+		  opacity: 0.6;
+		  background:#232;
+		  color: #fff;
+		  font-size: 18px;
+		  border-radius: 5px;
+		}
+
+		input[type="button"]
+		{
+		  width:320px;
+		  height: 30px;
+		  display:block;
+		  border: 0;
+		  opacity: 0.6;
+		  background:#543;
+		  color: #fff;
+		  font-size: 18px;
+		  border-radius: 5px;
+		}
+
+/*		input[type="password"]
+		{
+		  width:300px;
+		  height: 30px;
+		  display:block;
+		  border: 0;
+		  opacity: 0.6;
+		  background:transparent;
+		  border-bottom: 1px solid #fff;
+		  color: #fff;
+		  font-size: 18px;
+		}*/
+
+
+		button
+		{
+		  background-color: transparent; border: 0;padding: 5px;
+		}
+
+		.sub{
+			margin-top: 20px;
+
+		}
+
+
+
+		.container{
+			width: 100%;
+			padding-bottom: 40px;
+			min-width: 590px;
+			position: relative;
+			text-align: center;
+		}
+
+		.container > header{
+			padding: 20px;
+			margin: 0px 20px 20px 20px;
+			position: relative;
+			display: block;
+			text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+		    text-align: center;
+			font-family: 'Montserrat', Impact, Arial, sans-serif;
+			text-transform: uppercase;
+		}
+		.container > header h1{
+			font-size: 68px;
+			line-height: 70px;
+			position: relative;
+			font-weight: 800;
+			letter-spacing: 2px;
+			color: #D26A44;
+			text-shadow: 1px 1px 1px rgba(0,0,0,0.1), 0 0 1px #D26A44;
+		    padding: 0px 0px 60px 0px;
+			
+		}
+		.container > header h1 span:nth-child(1),
+		.container > header h1 span:nth-child(2),
+		.container > header h1 span:nth-child(3),
+		.container > header h1 span:nth-child(4){
+			color: #452716;
+			text-shadow: 1px 0px 1px rgba(255,255,255, 0.4), 0 0 1px #452716;
+		}
+		.container > header h2{
+			font-size: 18px;
+			line-height: 30px;
+			color: #F8ECBF;
+			text-shadow: 0px 1px 1px rgba(0,0,0,0.2);
+		}
+
+#video_background {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	min-width:100%;
+	min-height:100%;
+	max-height:4000%;
+	max-width:1000%;
+	width: auto;
+	height: auto;
+	z-index: -1000;
+	overflow: hidden;
+}
+#video_pattern{
+	/*background-image: url("play/img/bg1.jpg");*/
+	position: fixed;
+	left: 0px; 
+	top: 0px; 
+	width: 100%; 
+	height: 100%; 
+	z-index: 1;
+}
+.yoio-input>input{
+	height: 30px;
+}
+
+	</style>
+</head>
+<body>
+	<video autoplay preload="auto" loop muted poster="http://bcs.duapp.com/yoioplayer/bg1.jpg" id="video_background">
+		<source src="http://bcs.duapp.com/yoioplayer/home-the-music-yoio.mp4" type="video/mp4"/>
+		<source src="http://bcs.duapp.com/yoioplayer/home-the-music-yoio.webm" type="video/webm"/>
+	</video>
+	<div id="video_pattern" >
+		<!-- <div class="bg"><img src="play/img/bg1.jpg" class="blur"/></div> -->
+		<div class="container">
+			<header>
+				<h1 id="headline">yoioplayer</h1>
+				<h2>一起聆听生命中的音乐 &amp; 幸福</h2>
+				<p class="codrops-demos">
+					<a  onclick="go('http://www.hi6.co/yoio.html')">音乐</a>
+					<a  onclick="go('http://www.hi6.co/yoio.html')">友谊</a>
+					<a  onclick="go('http://www.hi6.co/yoio.html')">喝彩</a>
+					<a  onclick="go('http://www.hi6.co/yoio.html')">祝福</a>
+				</p>
+			</header>
+		</div>
+		<div class="login">
+			<form>
+			<div class="yoio-input">
+				<i class="icon-user"></i>
+				<input type="text" name="username" value="用户名/邮箱" placeholder="用户名/邮箱">
+			</div>
+			<div class="yoio-input">
+			  <i class="icon-lock"></i>
+			  <input  type="password" name="password" value="password">
+			</div>
+
+			<div class="sub">
+				<input type="submit" value="登录">
+			</div>
+
+			<div class="sub">
+				<input type="button" value="注册[Coming Soon]">
+			</div>
+			</form>
+		</div>
+
+	</div>
+
+
+	<script type="text/javascript" src="play/js/jquery.js"></script>
+	<script type="text/javascript" src="play/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="play/js/arctext.js"></script>
+	<script type="text/javascript" src="play/js/videobg.js"></script>
+	<script type="text/javascript"></script>
+	<script type="text/javascript">
+		var $headline = $('#headline').hide();
+				
+		google.load('webfont','1');
+		
+		google.setOnLoadCallback(function() {
+			WebFont.load({
+				google		: {
+					families	: ['Montserrat','Concert One']
+				},
+				fontactive	: function(fontFamily, fontDescription) {
+					init();
+				},
+				fontinactive	: function(fontFamily, fontDescription) {
+					init();
+				}
+			});
+		});
+
+
+		function init() {
+			$headline.show().arctext({radius: 400});
+		}
+
+		function go(v){
+			$('body').load(v)
+		}
+	</script>
+</body>
+</html>

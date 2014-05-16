@@ -1,0 +1,151 @@
+body{
+	/*background-color: #FF8247;*/
+	background: url("img/bgr.jpg") no-repeat transparent;
+	background-attachment:fixed;
+}
+
+.logo{
+	background: url("img/logo.png") no-repeat transparent;
+	width: 240px;
+	height: 90px;
+	position: fixed;
+	bottom: 3px;
+	right: 3px;
+}
+.progress{
+	height:3px;
+}
+.now{
+	position: absolute;
+	bottom: 0;
+}
+.end{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.yoioplay{
+	background: url("img/player1.png") no-repeat transparent;
+	width: 87px;
+	height: 87px;
+	/*margin: 200px auto;*/
+	animation: 9.5s linear 0s normal none infinite rotate;
+	-webkit-animation:9.5s linear 0s normal none infinite rotate;
+}
+.yoioplay:hover{
+	background-position:-100px 0px;
+}
+.yoiopause{
+	background: url("img/player1.png") no-repeat transparent;
+	width: 87px;
+	height: 87px;
+	/*margin: 200px auto;*/
+	background-position:0 -87px;
+	animation: 9.5s linear 0s normal none infinite rotate;
+	-webkit-animation:9.5s linear 0s normal none infinite rotate;
+}
+.yoiopause:hover{
+	background-position:-99px -87px;
+}
+.yoioreplay{
+	background: url("img/player1.png") no-repeat transparent;
+	width: 87px;
+	height: 87px;
+	background-position:0 -174px;
+}
+.yoioreplay:hover{
+	background-position: 0 -263px;
+}
+.yoionext{
+	background: url("img/player1.png") no-repeat transparent;
+	width: 87px;
+	height: 87px;
+	margin-left: 120px;
+	margin-top: -87px;
+	float: left;
+	background-position:-100px -174px;
+	animation: 20s linear 0s normal none infinite rotate;
+	-webkit-animation:20s linear 0s normal none infinite rotate;
+}
+.yoionext:hover{
+	background-position: -100px -264px;
+}
+
+
+
+.center{
+	position:fixed;left:50%;top:50%;
+	margin-top:-42px; 
+}
+
+
+@keyframes rotate{
+	from{-webkit-transform:rotate(0deg)}
+	to{-webkit-transform:rotate(360deg)}
+}
+
+@-webkit-keyframes rotate{
+from{-webkit-transform:rotate(0deg)}
+to{-webkit-transform:rotate(360deg)}
+}
+@-moz-keyframes rotate{
+from{-moz-transform:rotate(0deg)}
+to{-moz-transform:rotate(360deg)}
+}
+@-ms-keyframes rotate{
+from{-ms-transform:rotate(0deg)}
+to{-ms-transform:rotate(360deg)}
+}
+@-o-keyframes rotate{
+from{-o-transform:rotate(0deg)}
+to{-o-transform:rotate(360deg)}
+}
+
+.logout{
+	font-size: 20px;
+	color: #E0EEEE;
+	padding: 6px;
+	border-radius: 6px;
+	background-color: #FFFAF0;
+	position: fixed;
+	bottom: 3px;
+}
+.logout a{
+	text-decoration: none;
+}
+.logout i:hover{
+	color: #F4A460;
+}
+.logout i{
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+.lrc{
+	/*padding-top:80px;*/
+	text-align:left;
+	padding-left:100px;
+	line-height:25px;
+	font-size:13px;
+	padding-bottom:50px;
+}
+
+.yoiolrc{
+	color: #FFFFFF;
+	text-shadow: 0 -1px 0 #374683;
+	font-size: 30px;
+	filter:Alpha(Opacity=30);
+	opacity: 0.3;
+	text-transform: capitalize;
+	font-family: 'Merienda', cursive,"微软雅黑";
+}
+.author{
+	position:fixed;left:50%;top:50%;
+	margin-left: -300px;
+	margin-top: -120px;
+	border:3px solid #fff;
+	border-radius:125px;
+	-moz-border-radius:125px; /* Old Firefox */
+	animation: 20s linear 0s normal none infinite rotate;
+	-webkit-animation:20s linear 0s normal none infinite rotate;
+}
